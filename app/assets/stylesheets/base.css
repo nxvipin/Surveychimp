@@ -1,0 +1,25 @@
+.body{
+  background-color: #ecf0f1;
+  
+ }
+.header{
+  padding: 5px 5px 5px 5px;
+ }
+.logoimage{
+  height:50px;
+  vertical-align:bottom;
+}
+.logotext{
+  font-family: 'Droid Serif', serif;
+  font-size:45px;
+  font-weight:700;
+}
+.scontainer{
+  background-color: #34495e;
+  min-height:150px;
+ }
+.navbar-inner{
+  min-height:7px;
+  background-color:#1abc9c;
+  background-image: none;
+ }

@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Surveyc</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>SurveyChimp</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <style>
+      body {
+        padding-top: 30px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class='header'>
+        <%= image_tag "clipboard.png", :class=>'logoimage' %>
+        <span class='logotext'>SurveyChimp</span>
+      </div><br>
+      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <div class='span4'>
+      </div>
+      <%= yield %>
+    </div> <!-- /container -->
+  </body>
 </html>
+
