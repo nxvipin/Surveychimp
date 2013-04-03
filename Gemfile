@@ -36,3 +36,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# To validate the existence of vakue in a table
+gem "validates_existence", ">= 0.4"
