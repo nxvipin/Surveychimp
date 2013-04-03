@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
+survey_valid:
+  id: 1
+  title: SurveyTitle1
+  description: Survey Description 1
 
-two:
-  title: MyString
-  description: MyText
+survey_valid_2:
+  id: 2
+  title: SurveyTitle2
+  description: Survey Description 2

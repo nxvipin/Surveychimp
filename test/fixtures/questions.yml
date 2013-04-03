@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  question: MyText
-  question_type: MyString
-  question_options: MyText
+question_valid:
+  question: Question 1?
+  question_type: numeric
+  question_options: none 
   survey_id: 1
 
-two:
-  question: MyText
-  question_type: MyString
-  question_options: MyText
+question_invalid_survey_id:
+  question: Question 3?
+  question_type: essay
+  question_options: none
+  survey_id: 3
+
+question_invalid_type:
+  question: question 4?
+  question_type: random_type
+  question_options: none
   survey_id: 1
