@@ -1,8 +1,11 @@
 class QuestionsController < ApplicationController
+
+  before_filter :load_survey
+
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = @survey.questions.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @question = Question.find(params[:id])
+    @question = @survey.questions.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   # GET /questions/new.json
   def new
-    @question = Question.new
+    @question = @survey.questions.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +43,11 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(params[:question])
+    @question = @survey.questions.new(params[:question])
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to [@survey, @question], notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }
@@ -80,4 +83,10 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def load_survey
+      @survey = Survey.find(params[:survey_id])
+    end
+
 end
