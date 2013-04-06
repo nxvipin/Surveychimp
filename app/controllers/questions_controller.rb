@@ -59,11 +59,11 @@ class QuestionsController < ApplicationController
   # PUT /questions/1
   # PUT /questions/1.json
   def update
-    @question = Question.find(params[:id])
+    @question = @survey.questions.find(params[:id])
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to [@survey,@question], notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -75,11 +75,11 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
-    @question = Question.find(params[:id])
+    @question = @survey.questions.find(params[:id])
     @question.destroy
 
     respond_to do |format|
-      format.html { redirect_to questions_url }
+      format.html { redirect_to @survey }
       format.json { head :no_content }
     end
   end
