@@ -10,6 +10,30 @@
   <%= @survey.description %>
 </p>
 
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Question type</th>
+    <th>Question options</th>
+    <th>Survey</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @survey.questions.each do |question| %>
+  <tr>
+    <td><%= question.question %></td>
+    <td><%= question.question_type %></td>
+    <td><%= question.question_options %></td>
+    <td><%= question.survey_id %></td>
+    <td><%= link_to 'Show', survey_question_path(@survey, question) %></td>
+    <td><%= link_to 'Edit', edit_survey_question_path(@survey, question) %></td>
+    <td><%= link_to 'Destroy', [@survey, question], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
 <%= link_to 'Back', surveys_path %>
