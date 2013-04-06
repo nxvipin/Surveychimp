@@ -47,11 +47,17 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to [@survey, @question], notice: 'Question was successfully created.' }
-        format.json { render json: @question, status: :created, location: @question }
+        format.html { redirect_to \
+          [@survey, @question], \
+          notice: 'Question was successfully created.' }
+        format.json { render \
+          json: @question, \
+          status: :created, location: @question }
       else
         format.html { render action: "new" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+        format.json { render \
+          json: @question.errors, \
+          status: :unprocessable_entity }
       end
     end
   end
@@ -63,11 +69,15 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
-        format.html { redirect_to [@survey,@question], notice: 'Question was successfully updated.' }
+        format.html { redirect_to \
+          [@survey,@question], \
+          notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+        format.json { render \
+          json: @question.errors, \
+          status: :unprocessable_entity }
       end
     end
   end
