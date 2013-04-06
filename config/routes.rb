@@ -1,5 +1,8 @@
 Surveyc::Application.routes.draw do
 
+  resources :users
+
+
   resources :surveys do 
     resources :questions
   end
