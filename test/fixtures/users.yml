@@ -1,11 +1,23 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+# User Fixtures
+# All fields must be present
+# Verified is always 'y' or 'n'
 
-one:
-  name: MyString
-  email: MyString
-  verified: MyString
+user_valid:
+  name: Valid Name
+  email: valid@email.com
+  verified: y
 
-two:
-  name: MyString
-  email: MyString
-  verified: MyString
+user_valid_not_verified:
+  name: Valid Name
+  email: valid@email.com
+  verified: n
+
+user_invalid_email:
+  name: Valid Name
+  email: invalid email
+  verified: y
+
+user_invalid_verified_value:
+  name: Valid Name
+  email: valid@email.com
+  verified: x
