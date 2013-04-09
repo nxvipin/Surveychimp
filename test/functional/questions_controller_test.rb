@@ -7,51 +7,57 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, :survey_id => @question.survey_id
     assert_response :success
     assert_not_nil assigns(:questions)
   end
 
   test "should get new" do
-    get :new
+    get :new, :survey_id => @question.survey_id
     assert_response :success
   end
 
   test "should create question" do
     assert_difference('Question.count') do
-      post :create, question: { question: @question.question, question_options: @question.question_options, question_type: @question.question_type, survey_id: @question.survey_id }
+      post :create, \
+      question: { \
+        question: @question.question, \
+        question_options: @question.question_options, \
+        question_type: @question.question_type, \
+        survey_id: @question.survey_id }, \
+      :survey_id => @question.survey_id
     end
-    assert_redirected_to question_path(assigns(:question))
+    assert_redirected_to survey_question_path(@question.survey_id, \
+                                              assigns(:question))
   end
-
-test "should not create question" do
-    assert_no_difference('Question.count') do
-      post :create, question: { question: @question_fail.question, question_options: @question_fail.question_options, question_type: @question_fail.question_type, survey_id: @question_fail.survey_id }
-    end
-    assert_select "div#error_explanation ul li", "Survey does not exist"
-  end
-
 
   test "should show question" do
-    get :show, id: @question
+    get :show, id: @question, :survey_id => @question.survey_id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @question
+    get :edit, id: @question, :survey_id => @question.survey_id
     assert_response :success
   end
 
   test "should update question" do
-    put :update, id: @question, question: { question: @question.question, question_options: @question.question_options, question_type: @question.question_type, survey_id: @question.survey_id }
-    assert_redirected_to question_path(assigns(:question))
+    put :update, id: @question, \
+    question: { \
+      question: @question.question, \
+      question_options: @question.question_options, \
+      question_type: @question.question_type, \
+      survey_id: @question.survey_id }, \
+    :survey_id => @question.survey_id
+    assert_redirected_to survey_question_path(@question.survey_id, \
+                                              assigns(:question))
   end
 
   test "should destroy question" do
     assert_difference('Question.count', -1) do
-      delete :destroy, id: @question
+      delete :destroy, id: @question, :survey_id => @question.survey_id
     end
 
-    assert_redirected_to questions_path
+    assert_redirected_to survey_path @question.survey_id
   end
 end
