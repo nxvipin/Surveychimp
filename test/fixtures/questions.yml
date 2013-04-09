@@ -6,14 +6,8 @@ question_valid:
   question_options: none 
   survey_id: 1
 
-question_invalid_survey_id:
-  question: Question 3?
-  question_type: essay
-  question_options: none
-  survey_id: 3
-
 question_invalid_type:
   question: question 4?
   question_type: random_type
   question_options: none
-  survey_id: 1
+  survey: survey_valid
